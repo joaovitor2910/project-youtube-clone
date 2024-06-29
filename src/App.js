@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/home";
+import Inscricoes from "./pages/inscricoes";
+import ShortsPage from "./pages/shorts";
+import { UserStorage } from "./context/loginContext";
+import Login from "./components/login";
+import { UserDropMenu } from "./context/dropMenuContext";
+import Cadastro from "./pages/CreateUser";
+import { UserCreateStorage } from "./context/createUserContext";
+import VideosUser from "./pages/videosUser";
+import Search from "./pages/search";
+import { CategoryProvider } from "./context/categoriesSearch";
+
+
+
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CategoryProvider>
+    <UserCreateStorage >
+    <UserStorage>
+      <UserDropMenu>
+      <BrowserRouter>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/shorts" element={<ShortsPage/>} />
+            <Route path="/inscricoes" element={<Inscricoes/>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/seus-videos/" element={<VideosUser />} />
+            <Route path="/search" element={<Search />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+      </UserDropMenu>
+    </UserStorage>  
+    </UserCreateStorage>
+    </CategoryProvider>
   );
 }
 
