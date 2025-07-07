@@ -1,6 +1,5 @@
-import { useCallback, useContext, useState } from "react"
+import {useContext } from "react"
 import { UserContext } from "../../context/userContext"
-import { Banner, YourVideosContainer } from "../../components/yourVideos/styles"
 import Header from "../../components/header"
 import Menu from "../../components/menu"
 import { PesquisaContainer, PesquisaContent, PesquisaText, PesquisaTextContent, PesquisaVideoContent, ThumbnailPesquisa } from "./styles"

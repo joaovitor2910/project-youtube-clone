@@ -1,9 +1,4 @@
-import { useContext, useEffect, useState } from "react"
 import { ChannelImage, Container, ImageBanner, TextCard, TextContainer, Title, TitleContainer } from "./styles"
-import axios from "axios";
-import { CategoryProvider, useCategoryContext } from "../../context/categoriesSearch";
-import moment from "moment";
-
 interface Props {
   title: string
   thumbnail: string
